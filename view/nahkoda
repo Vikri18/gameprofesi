@@ -77,7 +77,7 @@
             <li class="response_drag" data-id="2">
               <div class="box-response">
                 <img src="../img/captain2.png" alt="" />
-                <p>Nahkoda</p>
+                <p>Captain</p>
                 <div class="box-response1">   
                   <img class="small-image btn-custom" src="../img/info.png" alt="" data-toggle="modal" data-target="#modalNahkoda"/>
                   <img class="small-image btn-custom" src="../img/sound.png" alt="" data-sound="../audio/Captain.mp3">
