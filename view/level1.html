@@ -1461,20 +1461,31 @@
 
       //Suara
       document.addEventListener('DOMContentLoaded', function() {
-      const imageItems = document.querySelectorAll('.small-image');
+        const imageItems = document.querySelectorAll('.small-image');
+        let currentAudio = null; // Variabel untuk menyimpan referensi audio yang sedang diputar
 
-      imageItems.forEach(function(item) {
-        item.addEventListener('click', function() {
-          const soundFile = item.getAttribute('data-sound');
-          playSound(soundFile);
+        imageItems.forEach(function(item) {
+          item.addEventListener('click', function() {
+            const soundFile = item.getAttribute('data-sound');
+            playSound(soundFile);
+          });
         });
-      });
 
-      function playSound(soundFile) {
-        const audio = new Audio(soundFile);
-        audio.play();
-      }
-    });
+        function playSound(soundFile) {
+          // Hentikan audio yang sedang diputar jika ada
+          if (currentAudio !== null) {
+            currentAudio.pause();
+            currentAudio.currentTime = 0;
+          }
+
+          // Buat dan mainkan audio baru
+          const audio = new Audio(soundFile);
+          audio.play();
+          
+          // Simpan referensi audio yang sedang diputar
+          currentAudio = audio;
+        }
+      });
 
 
     </script>
