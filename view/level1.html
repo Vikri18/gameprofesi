@@ -50,6 +50,19 @@
             </div>
           </div>
         </div>
+
+        <!-- Tombol untuk mengontrol mute/unmute dan memulai audio -->
+        <!-- <button id="audioControl">Start Audio</button> -->
+        <i
+            class="fas fa-volume-mute display-6 btn-music pointer"
+            id="audioControl"
+            title="MUTE"
+          ></i>
+
+        <!-- Tag audio untuk backsound -->
+        <audio id="backgroundSound" loop>
+          <source src="../audio/backsound.mp3" type="audio/mp3">
+        </audio>
        
         <div class="col-md-12" id="coba" style="margin-left: 60px;">
           <ul id="response_drop" class="d-flex">
@@ -1486,6 +1499,38 @@
           currentAudio = audio;
         }
       });
+
+      // Backsound
+      document.addEventListener('DOMContentLoaded', function() {
+      const backgroundSound = document.getElementById('backgroundSound');
+      const audioControlButton = document.getElementById('audioControl');
+
+      // Fungsi untuk mengontrol mute/unmute dan memulai audio
+      function toggleAudio() {
+        if (backgroundSound.paused && $(this).hasClass('fa-volume-mute')) {
+          // Jika audio dimatikan, atur volume, nyalakan, dan ganti label tombol
+          backgroundSound.volume = 0.2; // Set volume menjadi 10%
+          backgroundSound.play();
+          //audioControlButton.textContent = 'Mute/Unmute';
+          
+          $(this).removeClass('fa-volume-mute');
+          $(this).addClass('fa-volume-up');
+          $(this)[0].title = 'PLAY';
+        } else {
+          // Jika audio sedang berjalan, matikan dan ganti label tombol
+          backgroundSound.pause();
+          //audioControlButton.textContent = 'Start Audio';
+
+          $(this).removeClass('fa-volume-up');
+          $(this).addClass('fa-volume-mute');
+          $(this)[0].title = 'MUTE';
+          
+        }
+      }
+
+      // Tambahkan event listener untuk tombol audioControl
+      audioControlButton.addEventListener('click', toggleAudio);
+    });
 
 
     </script>
