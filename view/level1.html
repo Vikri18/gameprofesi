@@ -26,11 +26,26 @@
         margin-right: 10px; /* Atur jarak antara kedua gambar */  
       }
       .response_drag {
-    cursor: grab;
-    user-select: none;
-    margin-bottom: 10px;
-    list-style: none;
-  }
+      cursor: grab;
+      user-select: none;
+      margin-bottom: 10px;
+      list-style: none;
+    }
+
+      .image-list {
+      margin-top: 50px;
+      display: flex;
+      list-style: none;
+      padding: 0;
+    }
+
+    .image-box {
+      margin-top: 10px;
+      width: auto;
+      height: 400px;
+      overflow-x: auto;
+      overflow-y: hidden ;
+    }
     </style>
     <!-- <link rel="stylesheet" href="../css/regular.min.css"> -->
     <!-- <link rel="stylesheet" href="../css/solid.min.css">
@@ -252,8 +267,9 @@
         </div>
 
 
-        <div class="col-md-12 relation">
-          <ul id="relation_drop" class="row">
+        <h1 style="margin-top: 50px;"><center>Drag the profession card here!</center></h1>
+        <div class="col-md-12 relation image-box">
+          <ul id="relation_drop" class="image-list">
               <li class="col-lg-3" data-id="1">
                 <div class="box-equation">
                   <div class="toggle_sortable"></div>
